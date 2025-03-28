@@ -1,17 +1,19 @@
-name: Deploy React App to GitHub Pages
+name: Deploy React App
 
 on:
   push:
-    branches: [master] # Trigger on pushes to main branch
+    branches: [master]
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+          fetch-depth: 0
 
-      - name: Install Node.js
+      - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 20
@@ -19,12 +21,12 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Build React app
+      - name: Build
         run: npm run build
 
-      - name: Deploy to GitHub Pages
+      - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./build
-          cname: noyalnakarmi.com.np # Your custom domain
+          cname: noyalnakarmi.com.np
