@@ -83,7 +83,7 @@ const ConstructionPage: React.FC = () => {
           className="text-2xl md:text-4xl lg:text-5xl font-bold text-white mb-8 leading-tight"
           variants={itemVariants}
         >
-          Construction in Progress
+          Development in Progress
         </motion.h1>
 
         {/* Subtitle */}

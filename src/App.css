@@ -114,7 +114,17 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }
+}
+
+.transform-style-3d {
+  transform-style: preserve-3d;
+}
+
+.preserve-3d {
+  backface-visibility: hidden;
+  transform: translate3d(0, 0, 0);
 }
