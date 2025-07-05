@@ -64,7 +64,7 @@ const ContactSection = () => {
   return (
     <section
       id="contact"
-      className="scroll-mt-20 px-6 py-24 bg-gray-900 text-white"
+      className="scroll-mt-20 px-6 py-24 bg-gray-900 text-white bg-gradient-to-br from-gray-900 to-gray-800"
     >
       <div className="max-w-5xl mx-auto text-center">
         <motion.h2
@@ -87,7 +87,7 @@ const ContactSection = () => {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              className="group cursor-pointer bg-gray-800 hover:bg-gray-700 transition-all duration-300 rounded-xl p-6 flex flex-col items-center justify-center shadow-lg hover:shadow-xl transform hover:scale-105"
+              className="group cursor-pointer bg-gray-800 hover:bg-gray-700 transition-all duration-300 rounded-xl p-6 flex flex-col items-center justify-center shadow-lg hover:shadow-xl transform hover:scale-105 hover:shadow-blue-500/20 hover:ring-2 hover:ring-blue-500/30"
             >
               {icon}
               <p className="mt-4 text-lg font-medium text-gray-200 group-hover:text-white">

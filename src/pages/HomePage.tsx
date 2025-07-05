@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import RollingText3D from "./RollingText";
+import RollingText3D from "@/components/RollingText";
 
 const containerVariants = {
   hidden: {},
@@ -24,21 +24,22 @@ const HomePage = () => {
   return (
     <section
       id="about"
-      className="relative bg-gradient-to-br from-gray-900 to-gray-800 flex justify-center items-center p-6 overflow-hidden"
+      className="relative bg-gradient-to-br min-h-[80vh] from-gray-900 to-gray-800 flex flex-col p-6 overflow-x-hidden"
     >
       {/* Main content */}
       <motion.div
-        className="flex flex-col md:flex-row w-full md:w-3/5 md:px-16"
+        className="flex flex-col md:flex-row w-full max-w-screen-xl mx-auto md:px-8"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
       >
         <motion.div
-          className="flex flex-col justify-center md:flex-1 gap-6"
+          className="flex flex-col  md:flex-1 gap-6"
           variants={fadeInLeft}
         >
           <motion.div variants={fadeInUp}>
             <RollingText3D />
+
           </motion.div>
         </motion.div>
       </motion.div>

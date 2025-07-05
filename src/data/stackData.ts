@@ -1,0 +1,17 @@
+export const data = [
+    { ticker: "React", image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
+    { ticker: "Next JS", image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" },
+    { ticker: "Typescript", image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" },
+    { ticker: "React Query", image: "https://tanstack.com/assets/logo-color-100w-br5_Ikqp.png" },
+    { ticker: "Redux Toolkit", image: "https://redux.js.org/img/redux-logo-landscape.png" },
+    { ticker: "Zustand", image: "https://user-images.githubusercontent.com/958486/218346783-72be5ae3-b953-4dd7-b239-788a882fdad6.svg" },
+    { ticker: "Git", image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
+    { ticker: "NPM Package", image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/npm/npm-original-wordmark.svg" },
+    { ticker: "Babel", image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/babel/babel-original.svg" },
+    { ticker: "React Native", image: "https://reactnative.dev/img/header_logo.svg" },
+    { ticker: "Material UI", image: "https://mui.com/static/logo.png" },
+    { ticker: "Tailwind CSS", image: "https://raw.githubusercontent.com/devicons/devicon/6910f0503efdd315c8f9b858234310c06e04d9c0/icons/tailwindcss/tailwindcss-original.svg" },
+    { ticker: "Shadcn UI", image: "https://github.com/shadcn.png" },
+    { ticker: "Hero UI", image: "https://pbs.twimg.com/profile_images/1879986458167062528/MgaCLsau_400x400.jpg" },
+    { ticker: "Chakra UI", image: "https://logowik.com/content/uploads/images/chakra-ui2348.logowik.com.webp" },
+];

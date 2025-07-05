@@ -35,7 +35,7 @@ const RollingText3D = () => {
 
   return (
     <div
-      className="flex flex-col items-start gap-2 perspective-1000 w-full"
+      className="flex flex-col items-start gap-2 perspective-1000"
       onMouseEnter={handleHover}
       onMouseLeave={handleLeave}
     >
@@ -53,12 +53,12 @@ const RollingText3D = () => {
         initial={{ opacity: 0, y: -40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.1, ease: "easeOut", delay: 0.2 }}
-        className="text-white text-6xl font-bold leading-tight drop-shadow-[4px_4px_0px_rgba(0,255,200,0.5)] w-full break-words"
+        className="text-white text-6xl font-bold leading-tight drop-shadow-[4px_4px_0px_rgba(0,255,200,0.5)] break-words"
       >
         I'm
       </motion.div>
 
-      <div className="relative h-32 w-full transform-style-3d">
+      <div className="relative h-32 w-full overflow-hidden transform-style-3d">
         {words.map((word, index) => {
           const position = (index - activeIndex + words.length) % words.length;
           let transform = "";
@@ -95,10 +95,10 @@ const RollingText3D = () => {
             <div
               key={index}
               className={`
-          absolute inset-0 flex items-center justify-start
-          font-bold text-6xl md:text-7xl transition-all duration-700 ease-[cubic-bezier(0.34,1.56,0.64,1)]
-          bg-gradient-to-r ${gradient} bg-clip-text text-transparent
-          will-change-transform
+         absolute inset-0 flex items-center justify-start
+  font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl transition-all duration-700 ease-[cubic-bezier(0.34,1.56,0.64,1)]
+  bg-gradient-to-r ${gradient} bg-clip-text text-transparent
+  will-change-transform
         `}
               style={{
                 transform: `${transform} scale(${scale})`,
@@ -113,7 +113,7 @@ const RollingText3D = () => {
           );
         })}
       </div>
-    </div>
+    </div >
   );
 };
 

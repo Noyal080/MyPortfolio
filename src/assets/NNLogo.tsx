@@ -10,7 +10,7 @@ export const NNLogo = () => (
     whileHover={{ scale: 1.1 }}
     transition={{ type: "spring", stiffness: 400, damping: 10 }}
   >
-    8
+
     <circle cx="20" cy="20" r="19" stroke="currentColor" strokeWidth="1.5" />
     <path
       d="M12 12V28L18 18V28"
@@ -26,14 +26,6 @@ export const NNLogo = () => (
       strokeLinecap="round"
       strokeLinejoin="round"
     />
-    <line
-      x1="18"
-      y1="20"
-      x2="22"
-      y2="20"
-      stroke="currentColor"
-      strokeWidth="1.5"
-      strokeLinecap="round"
-    />
+
   </motion.svg>
 );

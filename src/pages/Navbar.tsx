@@ -36,9 +36,8 @@ const Navbar = () => {
   return (
     <>
       <motion.nav
-        className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-          scrolled ? "py-3" : "py-4"
-        }`}
+        className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${scrolled ? "py-3" : "py-4"
+          }`}
         initial={{
           backdropFilter: "blur(0px)",
           WebkitBackdropFilter: "blur(0px)",

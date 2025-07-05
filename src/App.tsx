@@ -2,10 +2,12 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 // import ConstructionPage from "./components/ConstructionPage";
-import HomePage from "./components/HomePage";
-import Navbar from "./components/Navbar";
+import HomePage from "@/pages/HomePage";
+import Navbar from "@/pages/Navbar";
 import { motion, AnimatePresence } from "framer-motion";
-import ContactSection from "./components/ContactSection";
+import ContactSection from "@/pages/ContactSection";
+import ProjectSection from "@/pages/Project";
+import InfiniteScrollAnimationPage from "@/pages/StackTicker";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -87,11 +89,15 @@ function App() {
       </AnimatePresence>
 
       {!isLoading && (
-        <div className="relative w-screen min-h-screen bg-gradient-to-br from-gray-900 to-gray-800">
+        <div className="relative w-full min-h-screen bg-gradient-to-br from-gray-900 to-gray-800">
           <Navbar />
           <div className="pt-24">
             <HomePage />
-
+            <ProjectSection />
+            <InfiniteScrollAnimationPage />
+            {/* <div className="container mx-auto w-full text-white flex justify-center items-center overflow-x-hidden"> */}
+            {/* <Marquee /> */}
+            {/* </div> */}
             <ContactSection />
           </div>
         </div>
