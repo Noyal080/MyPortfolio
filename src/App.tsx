@@ -89,15 +89,12 @@ function App() {
       </AnimatePresence>
 
       {!isLoading && (
-        <div className="relative w-full min-h-screen bg-gradient-to-br from-gray-900 to-gray-800">
+        <div className="relative w-full min-h-screen bg-gradient-to-br from-gray-900 to-gray-800 overflow-y-auto overflow-x-hidden ">
           <Navbar />
           <div className="pt-24">
             <HomePage />
             <ProjectSection />
             <InfiniteScrollAnimationPage />
-            {/* <div className="container mx-auto w-full text-white flex justify-center items-center overflow-x-hidden"> */}
-            {/* <Marquee /> */}
-            {/* </div> */}
             <ContactSection />
           </div>
         </div>
