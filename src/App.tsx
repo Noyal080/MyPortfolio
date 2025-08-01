@@ -1,7 +1,6 @@
 // import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import "./App.css";
-// import ConstructionPage from "./components/ConstructionPage";
 import HomePage from "@/pages/HomePage";
 import Navbar from "@/pages/Navbar";
 import { motion, AnimatePresence } from "framer-motion";
@@ -95,6 +94,7 @@ function App() {
             <HomePage />
             <ProjectSection />
             <InfiniteScrollAnimationPage />
+
             <ContactSection />
           </div>
         </div>
