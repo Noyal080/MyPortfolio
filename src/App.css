@@ -205,3 +205,22 @@
 .animate-accordion-up {
   animation: accordion-up 0.2s ease-out;
 }
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+html {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+/* Ensure content is still scrollable */
+.scrollable-content {
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  /* For smooth scrolling on iOS */
+}

@@ -19,8 +19,7 @@ const Navbar = () => {
   const navItems = [
     { title: "Home", href: "#about" },
     { title: "Projects", href: "#projects" },
-    { title: "Experience", href: "#experience" },
-    { title: "Education", href: "#education" },
+    { title: "Timeline", href: "#timeline" },
     { title: "Contact", href: "#contact" },
     { title: "CV", onClick: handleDownloadCV },
   ];

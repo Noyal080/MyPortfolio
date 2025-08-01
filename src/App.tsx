@@ -7,6 +7,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import ContactSection from "@/pages/ContactSection";
 import ProjectSection from "@/pages/Project";
 import InfiniteScrollAnimationPage from "@/pages/StackTicker";
+import Timeline from "./pages/Timeline";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -16,7 +17,16 @@ function App() {
       setIsLoading(false);
     }, 3100);
 
-    return () => clearTimeout(timer);
+    // Hide scrollbar when component mounts
+    document.documentElement.style.overflow = 'hidden';
+    document.body.style.overflow = 'hidden';
+
+    return () => {
+      clearTimeout(timer);
+      // Restore scrollbar when component unmounts
+      document.documentElement.style.overflow = '';
+      document.body.style.overflow = '';
+    };
   }, []);
 
   return (
@@ -65,7 +75,6 @@ function App() {
                   Portfolio
                 </motion.span>
               </div>
-
               <motion.div
                 className="mt-8 mx-auto w-24 h-1 bg-white/20 rounded-full overflow-hidden"
                 initial={{ opacity: 0 }}
@@ -88,14 +97,18 @@ function App() {
       </AnimatePresence>
 
       {!isLoading && (
-        <div className="relative w-full min-h-screen bg-gradient-to-br from-gray-900 to-gray-800 overflow-y-auto overflow-x-hidden ">
-          <Navbar />
-          <div className="pt-24">
-            <HomePage />
-            <ProjectSection />
-            <InfiniteScrollAnimationPage />
-
-            <ContactSection />
+        <div className="relative w-full min-h-screen bg-gradient-to-br from-gray-900 to-gray-800">
+          <div className="fixed inset-0 overflow-y-auto overflow-x-hidden">
+            <div className="min-h-screen">
+              <Navbar />
+              <div className="pt-24">
+                <HomePage />
+                <ProjectSection />
+                <InfiniteScrollAnimationPage />
+                <Timeline />
+                <ContactSection />
+              </div>
+            </div>
           </div>
         </div>
       )}
