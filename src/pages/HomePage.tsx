@@ -83,7 +83,7 @@ const HomePage = () => {
               <div className="absolute inset-0 rounded-full bg-gradient-to-br from-[#2563EB]/20 to-[#7C3AED]/20 dark:from-[#2563EB]/10 dark:to-[#7C3AED]/10" />
               <div className="absolute inset-4 rounded-full bg-[#F5F5F5] dark:bg-[#1A1A1A] overflow-hidden">
                 <img
-                  src="/src/assets/Me.jpg"
+                  src="/Me.JPG"
                   alt="Noyal Nakarmi"
                   className="w-full h-full object-cover"
                   onError={(e) => {
