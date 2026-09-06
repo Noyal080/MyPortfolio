@@ -41,73 +41,110 @@
   --color-sidebar-ring: var(--sidebar-ring);
 }
 
+/* Clean Light Theme Variables */
 :root {
   --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
+  
+  /* Background & Text */
+  --background: oklch(0.98 0 0);       /* #FAFAFA - near-white */
+  --foreground: oklch(0.07 0 0);        /* #111111 - near-black */
+  
+  /* Card & Surface */
+  --card: oklch(1 0 0);                 /* #FFFFFF - pure white */
+  --card-foreground: oklch(0.07 0 0);
+  
+  /* Popover */
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.07 0 0);
+  
+  /* Primary - Blue accent */
+  --primary: oklch(0.55 0.22 264);      /* #2563EB - blue-600 */
   --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
+  
+  /* Secondary - muted */
+  --secondary: oklch(0.96 0 0);         /* #F5F5F5 */
+  --secondary-foreground: oklch(0.07 0 0);
+  
+  /* Muted */
+  --muted: oklch(0.96 0 0);
+  --muted-foreground: oklch(0.4 0 0);   /* #666666 */
+  
+  /* Accent */
+  --accent: oklch(0.96 0 0);
+  --accent-foreground: oklch(0.07 0 0);
+  
+  /* Destructive */
   --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
+  --destructive-foreground: oklch(0.985 0 0);
+  
+  /* Borders & Inputs */
+  --border: oklch(0.92 0 0);            /* #E5E5E5 */
+  --input: oklch(0.92 0 0);
+  --ring: oklch(0.55 0.22 264);         /* Blue accent ring */
+  
+  /* Charts */
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
   --chart-4: oklch(0.828 0.189 84.429);
   --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
+  
+  /* Sidebar */
+  --sidebar: oklch(0.98 0 0);
+  --sidebar-foreground: oklch(0.07 0 0);
+  --sidebar-primary: oklch(0.55 0.22 264);
   --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  --sidebar-accent: oklch(0.96 0 0);
+  --sidebar-accent-foreground: oklch(0.07 0 0);
+  --sidebar-border: oklch(0.92 0 0);
+  --sidebar-ring: oklch(0.55 0.22 264);
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
+  /* Dark Theme Variables */
+  --background: oklch(0.06 0 0);       /* #0A0A0A - near black */
+  --foreground: oklch(0.98 0 0);        /* #FAFAFA - near white */
+  
+  --card: oklch(0.07 0 0);              /* #111111 */
+  --card-foreground: oklch(0.98 0 0);
+  
+  --popover: oklch(0.07 0 0);
+  --popover-foreground: oklch(0.98 0 0);
+  
+  /* Primary - Blue accent (same as light) */
+  --primary: oklch(0.55 0.22 264);      /* #2563EB */
+  --primary-foreground: oklch(0.985 0 0);
+  
+  --secondary: oklch(0.10 0 0);         /* #1A1A1A */
+  --secondary-foreground: oklch(0.98 0 0);
+  
+  --muted: oklch(0.10 0 0);
+  --muted-foreground: oklch(0.55 0 0);  /* #888888 */
+  
+  --accent: oklch(0.10 0 0);
+  --accent-foreground: oklch(0.98 0 0);
+  
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.985 0 0);
+  
+  --border: oklch(0.15 0 0);            /* #222222 */
+  --input: oklch(0.15 0 0);
+  --ring: oklch(0.55 0.22 264);         /* Blue accent ring */
+  
   --chart-1: oklch(0.488 0.243 264.376);
   --chart-2: oklch(0.696 0.17 162.48);
   --chart-3: oklch(0.769 0.188 70.08);
   --chart-4: oklch(0.627 0.265 303.9);
   --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
+  
+  --sidebar: oklch(0.06 0 0);
+  --sidebar-foreground: oklch(0.98 0 0);
+  --sidebar-primary: oklch(0.55 0.22 264);
   --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+  --sidebar-accent: oklch(0.10 0 0);
+  --sidebar-accent-foreground: oklch(0.98 0 0);
+  --sidebar-border: oklch(0.15 0 0);
+  --sidebar-ring: oklch(0.55 0.22 264);
 }
 
 @layer base {
@@ -117,91 +154,23 @@
 
   body {
     @apply bg-background text-foreground;
+    margin: 0;
+    min-width: 320px;
   }
 }
 
-.transform-style-3d {
-  transform-style: preserve-3d;
-}
-
-.preserve-3d {
-  backface-visibility: hidden;
-  transform: translate3d(0, 0, 0);
-}
-
-@keyframes tickers {
-  0% {
-    transform: translateX(0);
-  }
-
-  100% {
-    transform: translateX(calc(-50% - 20px));
-  }
-}
-
-@keyframes infinite-scroll {
-  0% {
-    transform: translateX(0);
-  }
-
-  100% {
-    transform: translateX(calc(-50% - 20px));
-  }
-}
-
-@keyframes rotate-yt-logo {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-/* Animation utility classes */
-
-.animate-tickers {
-  animation: tickers 40s linear infinite;
-}
-
-.animate-infinite-scroll {
-  animation: infinite-scroll 40s linear infinite;
-}
-
-.animate-home-scroll {
-  animation: infinite-scroll 40s linear infinite;
-}
-
-.animate-rotate-yt-logo {
-  animation: rotate-yt-logo 2s linear infinite;
-}
-
-/* Optional accordion (based on your config keys) */
-@keyframes accordion-down {
+/* Page transition animation */
+@keyframes fadeInUp {
   from {
-    height: 0;
+    opacity: 0;
+    transform: translateY(20px);
   }
-
   to {
-    height: var(--accordion-content-height);
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-@keyframes accordion-up {
-  from {
-    height: var(--accordion-content-height);
-  }
-
-  to {
-    height: 0;
-  }
-}
-
-.animate-accordion-down {
-  animation: accordion-down 0.2s ease-out;
-}
-
-.animate-accordion-up {
-  animation: accordion-up 0.2s ease-out;
+.page-transition {
+  animation: fadeInUp 0.5s ease-out forwards;
 }

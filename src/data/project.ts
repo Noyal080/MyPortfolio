@@ -1,31 +1,80 @@
-// src/data/projectData.ts
 export const projectData = [
   {
-    title: "Webdoko (LMS)",
+    title: "AI Portfolio Generator",
     description:
-      "It's a Learning Management System where learner can learn from different courses.",
-    techStack: ["React", "Context Api", "CSS", "Semantic UI"],
+      "Full-stack SaaS application that converts a developer's GitHub profile or resume into a professional portfolio within minutes using AI.",
+    techStack: [
+      "Next.js",
+      "NestJS",
+      "PostgreSQL",
+      "Prisma",
+      "Redis",
+      "TypeScript",
+      "OpenAI",
+      "Groq",
+      "Tailwind CSS",
+    ],
+    link: "https://ai-portfolio-generator-demo.vercel.app",
+    category: "Personal Project",
+  },
+  {
+    title: "Clinic Management System",
+    description:
+      "End-to-end patient flow management system covering reception intake, doctor consultations, department routing, lab orders, and result reporting.",
+    techStack: [
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Redux Toolkit",
+      "REST API",
+    ],
+    link: undefined,
+    category: "Zeta Labs",
+  },
+  {
+    title: "Pharmacy Management System",
+    description:
+      "Pharmacist user system to manage medicine inventory, sales, purchases, and stock tracking with real-time updates.",
+    techStack: ["React", "TypeScript", "Tailwind CSS", "Hero UI"],
+    link: undefined,
+    category: "Zeta Labs",
+  },
+  {
+    title: "Payment Gateway Integration",
+    description:
+      "Integrated Stripe and eSewa payment gateways covering general bookings, subscription billing, and membership renewal flows.",
+    techStack: ["React", "Stripe", "eSewa", "TypeScript", "Tailwind CSS"],
+    link: undefined,
+    category: "Zeta Labs",
+  },
+  {
+    title: "Learning Management System (LMS)",
+    description:
+      "End-to-end LMS enabling instructors to author lessons and learners to track progress with modular component architecture.",
+    techStack: ["React", "Context API", "Semantic UI", "Tailwind CSS"],
     link: "https://webdoko.com",
+    category: "Corpola Tech",
   },
   {
-    title: "Sushi Belgium (Ecommerce Web App)",
+    title: "E-Commerce Platform",
     description:
-      "A simple ecommerce app where admin can add products , manage staff as well as the users can shop and buy those products",
-    techStack: ["React", "Redux", "Semantic UI", "Tailwind CSS"],
+      "Full e-commerce platform with admin dashboard, product management, and global state management with Redux.",
+    techStack: ["React", "Tailwind CSS", "Semantic UI", "Redux"],
     link: "https://sushibelgium.be",
+    category: "Corpola Tech",
   },
   {
-    title: "Sushi Belgium (Mobile App)",
+    title: "Sushi Belgium Mobile App",
     description:
-      "A simple ecommerce mobile app where  users can browse and buy the products",
-    techStack: ["React Native", "React Native Paper", "CSS", "Redux"],
-    link: "https://play.google.com/store/apps/details?id=com.deadcat.sushibelgiumapp&hl=en",
+      "Cross-platform mobile application with user-friendly, accessible UI/UX and responsive design across all device sizes.",
+    techStack: ["React Native", "React Native Paper", "Redux", "TypeScript"],
+    link: "https://play.google.com/store/apps/details?id=com.deadcat.sushibelgiumapp",
+    category: "Corpola Tech",
   },
-
   {
-    title: "Seuiecommerce (NPM Package)",
+    title: "Seuiecommerce NPM Package",
     description:
-      "An npm package where different developers can use and implement into their ecommerce platform. An easy to use component and responsive designs",
+      "Open-source NPM package providing plug-and-play e-commerce layout components for React projects with responsive designs.",
     techStack: [
       "React",
       "Chart.js",
@@ -35,11 +84,12 @@ export const projectData = [
       "Webpack",
     ],
     link: "https://www.npmjs.com/package/seuiecommerce",
+    category: "Open Source",
   },
   {
-    title: "Travel Itinerary (NPM Package)",
+    title: "Travel Itinerary NPM Package",
     description:
-      "An npm package where user can integrate it within their travel or tour related app to support geolocation-related planning.",
+      "NPM package for geolocation-related planning with interactive maps and route visualization for travel applications.",
     techStack: [
       "React",
       "React Leaflet",
@@ -50,31 +100,6 @@ export const projectData = [
       "NPM",
     ],
     link: "https://www.npmjs.com/package/travel-itinerary",
-  },
-
-  {
-    title: "Field Management System ",
-    description:
-      "Complex field management system where user add their fields , drones , pesticides where the drone captured images are shown in the field alongside marking the infected part of the plant",
-    techStack: [
-      "React",
-      "Hero UI",
-      "Tailwind CSS",
-      "Redux Toolkit",
-      "React Query",
-    ],
-  },
-  {
-    title: "Yours Humanly Nepal Admin System ",
-    description:
-      "A admin system for Yours Humanly Nepal where the admin can modify their whole data for user side frontend.",
-    link: "https://yourshumanlynepal.org.np/",
-    techStack: [
-      "React",
-      "Chakra UI",
-      "React Query",
-      "Tailwind CSS",
-      "Redux Toolkit",
-    ],
+    category: "Open Source",
   },
 ];

@@ -2,7 +2,7 @@ import { useEffect, useState, useRef } from "react";
 import { motion } from "framer-motion";
 
 const RollingText3D = () => {
-  const words = ["Noyal Nakarmi", "a React Developer", "a Normal Person"];
+  const words = ["Developer", "Designer", "Creator"];
   const [activeIndex, setActiveIndex] = useState(0);
   const animationRef = useRef<number | null>(null);
   const [isAnimating, setIsAnimating] = useState(true);
@@ -14,7 +14,7 @@ const RollingText3D = () => {
       animationRef.current = window.setTimeout(() => {
         setActiveIndex((prev) => (prev + 1) % words.length);
         animate();
-      }, 3000);
+      }, 2500);
     };
 
     animate();
@@ -35,77 +35,67 @@ const RollingText3D = () => {
 
   return (
     <div
-      className="flex flex-col items-start gap-2 perspective-1000"
+      className="flex flex-col items-start gap-1"
       onMouseEnter={handleHover}
       onMouseLeave={handleLeave}
     >
       <motion.div
-        initial={{ opacity: 0, y: -40 }}
+        initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-        className="text-white text-6xl md:text-8xl font-bold leading-tight drop-shadow-[4px_4px_0px_rgba(0,255,200,0.5)]"
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        className="text-[#111] dark:text-[#FAFAFA] text-4xl sm:text-5xl md:text-7xl font-semibold leading-tight"
       >
         Hi,
       </motion.div>
 
-      {/* Animated I'm */}
       <motion.div
-        initial={{ opacity: 0, y: -40 }}
+        initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1.1, ease: "easeOut", delay: 0.2 }}
-        className="text-white text-6xl font-bold leading-tight drop-shadow-[4px_4px_0px_rgba(0,255,200,0.5)] break-words"
+        transition={{ duration: 0.6, ease: "easeOut", delay: 0.15 }}
+        className="text-[#111] dark:text-[#FAFAFA] text-4xl sm:text-5xl md:text-7xl font-semibold leading-tight"
       >
-        I'm
+        I'm Noyal
       </motion.div>
 
-      <div className="relative h-32 w-full overflow-hidden transform-style-3d">
+      <div className="relative h-16 sm:h-20 md:h-24 w-full overflow-hidden">
         {words.map((word, index) => {
           const position = (index - activeIndex + words.length) % words.length;
           let transform = "";
           let opacity = 0;
           let zIndex = 0;
-          let gradient = "";
           let scale = 1;
 
           switch (position) {
             case 0:
-              transform = "translateZ(0px) rotateX(0deg)";
+              transform = "translateY(0)";
               opacity = 1;
               zIndex = 30;
-              gradient = "from-purple-500 via-pink-500 to-red-500";
               scale = 1;
               break;
             case 1:
-              transform = "translateZ(-30px) rotateX(90deg)";
-              opacity = 0.7;
+              transform = "translateY(120%)";
+              opacity = 0;
               zIndex = 20;
-              gradient = "from-purple-400 via-pink-400 to-red-400";
-              scale = 0.9;
+              scale = 0.95;
               break;
             case 2:
-              transform = "translateZ(-30px) rotateX(-90deg)";
-              opacity = 0.7;
+              transform = "translateY(-120%)";
+              opacity = 0;
               zIndex = 10;
-              gradient = "from-purple-300 via-pink-300 to-red-300";
-              scale = 0.9;
+              scale = 0.95;
               break;
           }
 
           return (
             <div
               key={index}
-              className={`
-         absolute inset-0 flex items-center justify-start
-  font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl transition-all duration-700 ease-[cubic-bezier(0.34,1.56,0.64,1)]
-  bg-gradient-to-r ${gradient} bg-clip-text text-transparent
-  will-change-transform
-        `}
+              className="absolute inset-0 flex items-center text-3xl sm:text-4xl md:text-6xl font-medium text-[#666] dark:text-[#888]"
               style={{
                 transform: `${transform} scale(${scale})`,
                 opacity,
                 zIndex,
+                transition: "all 0.6s cubic-bezier(0.65, 0, 0.35, 1)",
                 transformOrigin: "center center",
-                backfaceVisibility: "hidden",
               }}
             >
               {word}
@@ -113,7 +103,7 @@ const RollingText3D = () => {
           );
         })}
       </div>
-    </div >
+    </div>
   );
 };
 

@@ -1,147 +1,228 @@
-import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
+import { useTheme } from "@/hooks/useTheme";
 import { NNLogo } from "@/assets/NNLogo";
+import { Sun, Moon, Menu, X, Download } from "lucide-react";
+
+const navItems = [
+  { title: "Home", path: "/" },
+  { title: "Work", path: "/projects" },
+  { title: "About", path: "/experience" },
+  { title: "Contact", path: "/contact" },
+];
+
+const handleDownloadCV = () => {
+  const cvPath = "/Noyal_FullStack_CV.pdf";
+  const link = document.createElement("a");
+  link.href = cvPath;
+  link.download = "Noyal_Nakarmi_CV.pdf";
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+};
 
 const Navbar = () => {
-  const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { theme, toggleTheme } = useTheme();
+  const location = useLocation();
 
-  const handleDownloadCV = () => {
-    const cvPath = "/NoyalCV.pdf"; // Place this in /public
-    const link = document.createElement("a");
-    link.href = cvPath;
-    link.download = "NoyalCV.pdf";
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+  const isActive = (path: string) => {
+    if (path === "/") return location.pathname === "/";
+    return location.pathname === path;
   };
-
-  const navItems = [
-    { title: "Home", href: "#about" },
-    { title: "Projects", href: "#projects" },
-    { title: "Experience", href: "#experience" },
-    { title: "Education", href: "#education" },
-    { title: "Contact", href: "#contact" },
-    { title: "CV", onClick: handleDownloadCV },
-  ];
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 10);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   return (
     <>
       <motion.nav
-        className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${scrolled ? "py-3" : "py-4"
-          }`}
-        initial={{
-          backdropFilter: "blur(0px)",
-          WebkitBackdropFilter: "blur(0px)",
-        }}
-        animate={{
-          backdropFilter: scrolled ? "blur(12px)" : "blur(8px)",
-          WebkitBackdropFilter: scrolled ? "blur(12px)" : "blur(8px)",
-          backgroundColor: scrolled
-            ? "rgba(15, 23, 42, 0.65)"
-            : "rgba(15, 23, 42, 0.5)",
-          borderBottom: scrolled
-            ? "1px solid rgba(255, 255, 255, 0.1)"
-            : "1px solid rgba(255, 255, 255, 0.05)",
-          boxShadow: scrolled ? "0 4px 30px rgba(0, 0, 0, 0.1)" : "none",
-        }}
+        className="fixed top-0 left-0 w-full z-50 bg-[#FAFAFA]/90 dark:bg-[#0A0A0A]/90 backdrop-blur-md border-b border-[#E5E5E5]/50 dark:border-[#222]/50"
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        transition={{ duration: 0.4, ease: "easeOut" }}
       >
-        <div className="container mx-auto px-4 flex justify-between items-center">
-          <motion.div
-            className="text-white font-bold text-xl"
-            whileHover={{ scale: 1.05 }}
-          >
-            <NNLogo />
-          </motion.div>
-
-          <div className="hidden md:flex space-x-6">
-            {navItems.map((item) => (
-              <motion.a
-                key={item.title}
-                href={item.href}
-                onClick={item.onClick}
-                className="text-gray-300 hover:text-white transition-colors relative group cursor-pointer"
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.95 }}
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-16">
+            {/* Logo */}
+            <Link to="/">
+              <motion.div
+                className="flex items-center gap-2.5"
+                whileHover={{ scale: 1.02 }}
+                transition={{ type: "spring", stiffness: 300 }}
               >
-                {item.title}
-                <span className="absolute bottom-0 left-0 w-0 h-px bg-white transition-all duration-300 group-hover:w-full"></span>
-              </motion.a>
-            ))}
-          </div>
+                <NNLogo />
+                <span className="text-base font-semibold text-[#111] dark:text-[#FAFAFA] tracking-tight hidden sm:block">
+                  Noyal Nakarmi
+                </span>
+              </motion.div>
+            </Link>
 
-          <motion.button
-            className="md:hidden text-white p-2 rounded-lg hover:bg-white hover:bg-opacity-10 transition-all"
-            whileTap={{ scale: 0.9 }}
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d={
-                  mobileMenuOpen
-                    ? "M6 18L18 6M6 6l12 12"
-                    : "M4 6h16M4 12h16M4 18h16"
-                }
-              />
-            </svg>
-          </motion.button>
+            {/* Desktop Navigation */}
+            <div className="hidden md:flex items-center gap-8">
+              {navItems.map((item) => (
+                <Link key={item.path} to={item.path}>
+                  <motion.div
+                    className={`relative text-sm font-medium transition-colors pb-1 ${
+                      isActive(item.path)
+                        ? "text-[#111] dark:text-[#FAFAFA]"
+                        : "text-[#666] dark:text-[#888] hover:text-[#111] dark:hover:text-[#FAFAFA]"
+                    }`}
+                    whileHover={{ y: -2 }}
+                    transition={{ type: "spring", stiffness: 400 }}
+                  >
+                    {item.title}
+                    {/* Underline indicator for active state */}
+                    {isActive(item.path) && (
+                      <motion.div
+                        className="absolute -bottom-1 left-0 right-0 h-0.5 bg-[#2563EB] dark:bg-[#60A5FA]"
+                        layoutId="activeNav"
+                        initial={false}
+                        transition={{
+                          type: "spring",
+                          stiffness: 300,
+                          damping: 30,
+                        }}
+                      />
+                    )}
+                  </motion.div>
+                </Link>
+              ))}
+
+              {/* Download CV Button */}
+              <motion.button
+                onClick={handleDownloadCV}
+                className="px-4 py-1.5 rounded-full text-sm font-medium text-white bg-[#2563EB] hover:bg-[#1D4ED8] dark:bg-[#60A5FA] dark:text-[#111] dark:hover:bg-[#93C5FD] transition-colors flex items-center gap-1.5"
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
+              >
+                <Download className="w-3.5 h-3.5" />
+                <span>CV</span>
+              </motion.button>
+
+              {/* Theme Toggle */}
+              <motion.button
+                onClick={toggleTheme}
+                className="p-2 rounded-full hover:bg-[#F5F5F5] dark:hover:bg-[#1A1A1A] transition-colors"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                aria-label="Toggle theme"
+              >
+                <AnimatePresence mode="wait" initial={false}>
+                  <motion.div
+                    key={theme}
+                    initial={{ rotate: -90, opacity: 0 }}
+                    animate={{ rotate: 0, opacity: 1 }}
+                    exit={{ rotate: 90, opacity: 0 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    {theme === "light" ? (
+                      <Moon className="w-4 h-4 text-[#666] dark:text-[#888]" />
+                    ) : (
+                      <Sun className="w-4 h-4 text-[#666] dark:text-[#888]" />
+                    )}
+                  </motion.div>
+                </AnimatePresence>
+              </motion.button>
+            </div>
+
+            {/* Mobile Controls */}
+            <div className="flex items-center gap-2 md:hidden">
+              {/* Mobile Download CV */}
+              <motion.button
+                onClick={handleDownloadCV}
+                className="p-2 rounded-full hover:bg-[#F5F5F5] dark:hover:bg-[#1A1A1A] transition-colors"
+                whileTap={{ scale: 0.95 }}
+                aria-label="Download CV"
+              >
+                <Download className="w-4 h-4 text-[#666] dark:text-[#888]" />
+              </motion.button>
+
+              {/* Mobile Theme Toggle */}
+              <motion.button
+                onClick={toggleTheme}
+                className="p-2 rounded-full hover:bg-[#F5F5F5] dark:hover:bg-[#1A1A1A] transition-colors"
+                whileTap={{ scale: 0.95 }}
+                aria-label="Toggle theme"
+              >
+                <AnimatePresence mode="wait" initial={false}>
+                  <motion.div
+                    key={theme}
+                    initial={{ rotate: -90, opacity: 0 }}
+                    animate={{ rotate: 0, opacity: 1 }}
+                    exit={{ rotate: 90, opacity: 0 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    {theme === "light" ? (
+                      <Moon className="w-4 h-4 text-[#666] dark:text-[#888]" />
+                    ) : (
+                      <Sun className="w-4 h-4 text-[#666] dark:text-[#888]" />
+                    )}
+                  </motion.div>
+                </AnimatePresence>
+              </motion.button>
+
+              {/* Mobile Menu Button */}
+              <button
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                aria-label="Toggle menu"
+                className="p-2 rounded-full hover:bg-[#F5F5F5] dark:hover:bg-[#1A1A1A] transition-colors"
+              >
+                <AnimatePresence mode="wait" initial={false}>
+                  <motion.div
+                    key={mobileMenuOpen ? "close" : "menu"}
+                    initial={{ opacity: 0, rotate: -90 }}
+                    animate={{ opacity: 1, rotate: 0 }}
+                    exit={{ opacity: 0, rotate: 90 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    {mobileMenuOpen ? (
+                      <X className="w-5 h-5 text-[#111] dark:text-[#FAFAFA]" />
+                    ) : (
+                      <Menu className="w-5 h-5 text-[#111] dark:text-[#FAFAFA]" />
+                    )}
+                  </motion.div>
+                </AnimatePresence>
+              </button>
+            </div>
+          </div>
         </div>
       </motion.nav>
 
-      {/* Mobile Menu with Glass Effect */}
-      {mobileMenuOpen && (
-        <motion.div
-          className="fixed top-16 left-0 w-full z-40 md:hidden"
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -20 }}
-          transition={{ duration: 0.3 }}
-        >
-          <div
-            className="bg-gray-900 bg-opacity-80 backdrop-blur-lg border-t border-gray-800"
-            style={{
-              backdropFilter: "blur(12px)",
-              WebkitBackdropFilter: "blur(12px)",
-            }}
+      {/* Mobile Menu */}
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <motion.div
+            className="fixed top-16 left-0 right-0 z-40 bg-[#FAFAFA]/98 dark:bg-[#0A0A0A]/98 backdrop-blur-lg border-b border-[#E5E5E5]/50 dark:border-[#222]/50"
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.25 }}
           >
-            <div className="container mx-auto px-4 py-3 flex flex-col space-y-3">
-              <div className="container mx-auto px-4 py-3 flex flex-col space-y-3">
-                {navItems.map((item) => (
-                  <motion.a
-                    key={item.title}
-                    href={item.href}
-                    onClick={() => {
-                      if (item.onClick) item.onClick();
-                      setMobileMenuOpen(false);
-                    }}
-                    className="text-gray-300 hover:text-white py-2 px-4 rounded-lg hover:bg-white hover:bg-opacity-10 transition-all cursor-pointer"
-                    whileTap={{ scale: 0.95 }}
+            <div className="max-w-6xl mx-auto px-6 py-4 flex flex-col gap-1">
+              {navItems.map((item, i) => (
+                <Link
+                  key={item.path}
+                  to={item.path}
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  <motion.div
+                    className={`py-3 px-4 rounded-xl text-sm font-medium transition-colors ${
+                      isActive(item.path)
+                        ? "bg-[#F5F5F5] dark:bg-[#1A1A1A] text-[#111] dark:text-[#FAFAFA]"
+                        : "text-[#666] dark:text-[#888] hover:bg-[#F5F5F5] dark:hover:bg-[#1A1A1A]"
+                    }`}
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: i * 0.05, duration: 0.3 }}
+                    whileTap={{ scale: 0.98 }}
                   >
                     {item.title}
-                  </motion.a>
-                ))}
-              </div>
+                  </motion.div>
+                </Link>
+              ))}
             </div>
-          </div>
-        </motion.div>
-      )}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 };
